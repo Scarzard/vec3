@@ -52,25 +52,25 @@ public:
 		return resVec;
 	}
 
-	//OPERATOR+=
-	vec3 operator+= (const vec3)
-	{
-		vec3 resVec;
-		resVec.x += resVec.x;
-		resVec.y += resVec.y; 
-		resVec.z += resVec.z;
-		return resVec;
-	}
+	////OPERATOR+=
+	//vec3 operator+= (const vec3 &newVec)
+	//{
+	//	vec3 resVec;
+	//	resVec.x += resVec.x;
+	//	resVec.y += resVec.y; 
+	//	resVec.z += resVec.z;
+	//	return resVec;
+	//}
 
-	//OPERATOR-=
-	vec3 operator+= (const vec3)
-	{
-		vec3 resVec;
-		resVec.x -= resVec.x;
-		resVec.y -= resVec.y;
-		resVec.z -= resVec.z;
-		return resVec;
-	}
+	////OPERATOR-=
+	//vec3 operator+= (const vec3 &newVec)
+	//{
+	//	vec3 resVec;
+	//	resVec.x -= resVec.x;
+	//	resVec.y -= resVec.y;
+	//	resVec.z -= resVec.z;
+	//	return resVec;
+	//}
 
 	//OPERATOR==
 	bool operator==(const vec3 &newVec)
@@ -110,6 +110,10 @@ public:
 
 	}
 	
+	void const printVec()
+	{
+		cout << "x = " << x << " " << "y = " << y << " " << "z = " << z << endl;
+	}
 
 };
 
