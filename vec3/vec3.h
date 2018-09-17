@@ -11,7 +11,7 @@ private:
 	T x, y, z;
 
 public:
-	//CONSTRUCTORS
+	//CONSTRUCTORS->WORKS
 	vec3() {
 		x = 0;
 		y = 0;
@@ -52,25 +52,23 @@ public:
 		return resVec;
 	}
 
-	////OPERATOR+=
-	//vec3 operator+= (const vec3 &newVec)
-	//{
-	//	vec3 resVec;
-	//	resVec.x += resVec.x;
-	//	resVec.y += resVec.y; 
-	//	resVec.z += resVec.z;
-	//	return resVec;
-	//}
+	//OPERATOR+=
+	vec3 operator+= (const vec3)
+	{
+		vec3 resVec;
+		resVec.x += resVec.x;
+		resVec.y += resVec.y;
+		resVec.z += resVec.z;
+	}
 
-	////OPERATOR-=
-	//vec3 operator+= (const vec3 &newVec)
-	//{
-	//	vec3 resVec;
-	//	resVec.x -= resVec.x;
-	//	resVec.y -= resVec.y;
-	//	resVec.z -= resVec.z;
-	//	return resVec;
-	//}
+	//OPERATOR-=
+	vec3 operator+= (const vec3)
+	{
+		vec3 resVec;
+		resVec.x -= resVec.x;
+		resVec.y -= resVec.y;
+		resVec.z -= resVec.z;
+	}
 
 	//OPERATOR==
 	bool operator==(const vec3 &newVec)
@@ -89,14 +87,14 @@ public:
 		z = z / vectorModule;
 		y = y / vectorModule;
 	}
-	//METHOD ZERO
+	//METHOD ZERO->WORKS
 	void zero() 
 	{
 		x = 0;
 		y = 0;
 		z = 0;
 	}
-	//METHOD ISZERO
+	//METHOD ISZERO->WORKS
 	bool isZero(const vec3 &newVec)
 	{
 		bool ret = false;
@@ -110,6 +108,7 @@ public:
 
 	}
 	
+	//PRINTING METHOD->WORKS
 	void const printVec()
 	{
 		cout << "x = " << x << " " << "y = " << y << " " << "z = " << z << endl;
