@@ -1,6 +1,8 @@
 #ifndef _VEC3_H
 #define _VEC3_H\
 
+#include <cmath>
+
 template <class T>
 
 class vec3
@@ -82,9 +84,32 @@ public:
 	//METHOD NORMALIZE
 	void normazile()
 	{
-
+		T vectorModule = sqrt(x*x + y*y + z*z);
+		x = x / vectorModule;
+		z = z / vectorModule;
+		y = y / vectorModule;
 	}
 	//METHOD ZERO
+	void zero() 
+	{
+		x = 0;
+		y = 0;
+		z = 0;
+	}
+	//METHOD ISZERO
+	bool isZero(const vec3 &newVec)
+	{
+		bool ret = false;
+		vec3 resVec;
+		if (resVec.x == 0 && resVec.z == 0 && resVec.z == 0) ret = true;
+		return ret;
+	}
+	//METHOD DISTANCETO
+	void distanceTo()
+	{
+
+	}
+	
 
 };
 
