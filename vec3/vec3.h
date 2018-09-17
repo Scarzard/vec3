@@ -18,9 +18,9 @@ public:
 		z = 0;
 	}
 	vec3(T X, T Y, T Z) {
-		X = x;
-		Y = y;
-		Z = z;
+		x = X;
+		y = Y;
+		z = Z;
 	}
 	vec3(const vec3 &auxVec) 
 	{
