@@ -31,7 +31,7 @@ public:
 	//DESTRUCTOR
 	~vec3() {}
 
-	//OPERATOR+
+	//OPERATOR+->WORKS
 
 	vec3 operator+ (const vec3 &newVec)
 	{
@@ -42,7 +42,7 @@ public:
 		return resVec;
 	}
 
-	//OPERATOR-
+	//OPERATOR-->WORKS
 	vec3 operator- (const vec3 &newVec)
 	{
 		vec3 resVec;
@@ -52,34 +52,35 @@ public:
 		return resVec;
 	}
 
-	//OPERATOR+=
-	vec3 operator+= (const vec3)
+	//OPERATOR+=->WORKS
+	vec3 operator+= (const vec3 &newVec)
 	{
 		vec3 resVec;
-		resVec.x += resVec.x;
-		resVec.y += resVec.y;
-		resVec.z += resVec.z;
+		resVec.x += x + newVec.x;
+		resVec.y += y + newVec.y;
+		resVec.z += z + newVec.z;
+		return resVec;
 	}
 
-	//OPERATOR-=
-	vec3 operator+= (const vec3)
+	//OPERATOR-=->WORKS
+	vec3 operator-= (const vec3 &newVec)
 	{
 		vec3 resVec;
-		resVec.x -= resVec.x;
-		resVec.y -= resVec.y;
-		resVec.z -= resVec.z;
+		resVec.x -= x - newVec.x;
+		resVec.y -= y - newVec.y;
+		resVec.z -= z - newVec.z;
+		return resVec;
 	}
 
-	//OPERATOR==
+	//OPERATOR==->WORKS
 	bool operator==(const vec3 &newVec)
 	{
-		vec3 resVec;
 		bool ret = false;
-		if (resVec.x == newVec.x && resVec.y == newVec.y && resVec.z == newVec.z) ret = true;
+		if (x == newVec.x && y == newVec.y && z == newVec.z) ret = true;
 		return ret;
 	}
 
-	//METHOD NORMALIZE
+	//METHOD NORMALIZE->WORKS
 	void normazile()
 	{
 		T vectorModule = sqrt(x*x + y*y + z*z);

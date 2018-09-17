@@ -24,10 +24,20 @@ int main()
 	testVec5 = (testVec2 + testVec4);
 	testVec5.printVec();
 	vec3<float> testVec6;
-	testVec6 = (testVec4 - testVec2);
+	testVec6 = (testVec2 - testVec4);
 	testVec6.printVec();
 	vec3<float> testVec7;
-	testVec7 = testVec2.operator+=(testVec2);
+	testVec7 = (testVec4 += testVec4);
+	testVec7.printVec();
+	vec3<float> testVec8;
+	testVec8 = (testVec4 -= testVec4);
+	testVec8.printVec();
+
+	if (testVec2.operator==(testVec3) == true)
+	{
+		cout << "Vectors are equal" << endl;
+	}
+	
 
 	//METHOD TESTS
 	cout << "Method tests" << endl;
@@ -41,8 +51,8 @@ int main()
 	testVec2.zero();
 	testVec2.printVec();
 
-	/*testVec2.normazile();
-	testVec2.printVec();*/
+	testVec4.normazile();
+	testVec4.printVec();
 
 	system("PAUSE");
 	return 0;
