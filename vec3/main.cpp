@@ -54,6 +54,9 @@ int main()
 	testVec4.normazile();
 	testVec4.printVec();
 
+	vec3<float> testVec9(5, 4, 2);
+	cout << "The distance between these two vectors is: " << testVec9.distanceTo(testVec1) << endl;
+
 	system("PAUSE");
 	return 0;
 }

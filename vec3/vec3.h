@@ -103,10 +103,12 @@ public:
 		if (resVec.x == 0 && resVec.z == 0 && resVec.z == 0) ret = true;
 		return ret;
 	}
-	//METHOD DISTANCETO
-	void distanceTo()
+	//METHOD DISTANCETO d= v/(x-x2)^2+(y-y2)^2+(z-z2)^2
+	float distanceTo(vec3 &newVec)
 	{
-
+		float distance = 0;
+		distance = sqrt(pow(x - newVec.x, 2) + pow(y - newVec.y, 2) + pow(z - newVec.z, 2));
+		return distance;
 	}
 	
 	//PRINTING METHOD->WORKS
