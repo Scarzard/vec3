@@ -7,22 +7,24 @@ template <class T>
 
 class vec3
 {
-private:
+public:
+
 	T x, y, z;
 
-public:
 	//CONSTRUCTORS->WORKS
-	vec3() {
+	vec3() 
+	{
 		x = 0;
 		y = 0;
 		z = 0;
 	}
-	vec3(T X, T Y, T Z) {
+
+	vec3(const T& X, const T& Y, const T& Z) {
 		x = X;
 		y = Y;
 		z = Z;
 	}
-	vec3(const vec3 &auxVec) 
+	vec3(const vec3& auxVec) 
 	{
 		x = auxVec.x;
 		y = auxVec.y;
@@ -33,7 +35,7 @@ public:
 
 	//OPERATOR+->WORKS
 
-	vec3 operator+ (const vec3 &newVec)
+	vec3 operator+ (const vec3& newVec) const
 	{
 		vec3 resVec;
 		resVec.x = x + newVec.x;
@@ -43,7 +45,7 @@ public:
 	}
 
 	//OPERATOR-->WORKS
-	vec3 operator- (const vec3 &newVec)
+	vec3 operator- (const vec3& newVec) const
 	{
 		vec3 resVec;
 		resVec.x = x - newVec.x;
@@ -53,7 +55,7 @@ public:
 	}
 
 	//OPERATOR+=->WORKS
-	vec3 operator+= (const vec3 &newVec)
+	vec3 operator+= (const vec3& newVec) const
 	{
 		vec3 resVec;
 		resVec.x += x + newVec.x;
@@ -63,7 +65,7 @@ public:
 	}
 
 	//OPERATOR-=->WORKS
-	vec3 operator-= (const vec3 &newVec)
+	vec3 operator-= (const vec3& newVec) const
 	{
 		vec3 resVec;
 		resVec.x -= x - newVec.x;
@@ -73,30 +75,33 @@ public:
 	}
 
 	//OPERATOR==->WORKS
-	bool operator==(const vec3 &newVec)
+	bool operator==(const vec3& newVec) const
 	{
-		bool ret = false;
-		if (x == newVec.x && y == newVec.y && z == newVec.z) ret = true;
-		return ret;
+		return (x == newVec.x && y == newVec.y && z == newVec.z);
 	}
 
 	//METHOD NORMALIZE->WORKS
-	void normazile()
+	vec3 normazile() 
 	{
-		T vectorModule = sqrt(x*x + y*y + z*z);
-		x = x / vectorModule;
-		z = z / vectorModule;
-		y = y / vectorModule;
+		vec3 auxVec;
+
+		T vectorModule = sqrtf(x*x + y*y + z*z);
+		auxVec.x = x / vectorModule;
+		auxVec.y = y / vectorModule;
+		auxVec.z = z / vectorModule;
+
+		return auxVec;
 	}
 	//METHOD ZERO->WORKS
-	void zero() 
+	void zero()
 	{
-		x = 0;
-		y = 0;
-		z = 0;
+		x = 0u;
+		y = 0u;
+		z = 0u;
 	}
+
 	//METHOD ISZERO->WORKS
-	bool isZero(const vec3 &newVec)
+	bool isZero(const vec3 &newVec) const
 	{
 		bool ret = false;
 		vec3 resVec;
@@ -104,7 +109,7 @@ public:
 		return ret;
 	}
 	//METHOD DISTANCETO d= v/(x-x2)^2+(y-y2)^2+(z-z2)^2
-	float distanceTo(vec3 &newVec)
+	float distanceTo(vec3 &newVec) 
 	{
 		float distance = 0;
 		distance = sqrt(pow(x - newVec.x, 2) + pow(y - newVec.y, 2) + pow(z - newVec.z, 2));
