@@ -12,18 +12,14 @@ public:
 	T x, y, z;
 
 	//CONSTRUCTORS->WORKS
-	vec3() 
-	{
-		x = 0;
-		y = 0;
-		z = 0;
-	}
+	vec3() {}
 
 	vec3(const T& X, const T& Y, const T& Z) {
 		x = X;
 		y = Y;
 		z = Z;
 	}
+
 	vec3(const vec3& auxVec) 
 	{
 		x = auxVec.x;
@@ -35,24 +31,10 @@ public:
 
 	//OPERATOR+->WORKS
 
-	vec3 operator+ (const vec3& newVec) const
-	{
-		vec3 resVec;
-		resVec.x = x + newVec.x;
-		resVec.y = y + newVec.y;
-		resVec.z = z + newVec.z;
-		return resVec;
-	}
+	vec3 operator+ (const vec3& newVec) const {	return vec3 resVec((x + newVec.x), (y + newVec.y), (z + newVec.z));	}
 
 	//OPERATOR-->WORKS
-	vec3 operator- (const vec3& newVec) const
-	{
-		vec3 resVec;
-		resVec.x = x - newVec.x;
-		resVec.y = y - newVec.y;
-		resVec.z = z - newVec.z;
-		return resVec;
-	}
+	vec3 operator- (const vec3& newVec) const { return vec3 resVec((x - newVec.x), (y - newVec.y), (z - newVec.z)); }
 
 	//OPERATOR+=->WORKS
 	vec3 operator+= (const vec3& newVec) const
@@ -95,9 +77,7 @@ public:
 	//METHOD ZERO->WORKS
 	void zero()
 	{
-		x = 0u;
-		y = 0u;
-		z = 0u;
+		x = y = z = 0u;
 	}
 
 	//METHOD ISZERO->WORKS
