@@ -12,7 +12,10 @@ public:
 	T x, y, z;
 
 	//CONSTRUCTORS->WORKS
-	vec3() {}
+	vec3() 
+	{
+		x = z = y = 0;
+	}
 
 	vec3(const T& X, const T& Y, const T& Z) {
 		x = X;
@@ -31,10 +34,12 @@ public:
 
 	//OPERATOR+->WORKS
 
-	vec3 operator+ (const vec3& newVec) const {	return vec3 resVec((x + newVec.x), (y + newVec.y), (z + newVec.z));	}
+	vec3 operator+ (const vec3& newVec) const 
+	{	return vec3((x + newVec.x), (y + newVec.y), (z + newVec.z));	}
 
 	//OPERATOR-->WORKS
-	vec3 operator- (const vec3& newVec) const { return vec3 resVec((x - newVec.x), (y - newVec.y), (z - newVec.z)); }
+	vec3 operator- (const vec3& newVec) const 
+	{ return vec3((x - newVec.x), (y - newVec.y), (z - newVec.z)); }
 
 	//OPERATOR+=->WORKS
 	vec3 operator+= (const vec3& newVec) const
@@ -43,7 +48,7 @@ public:
 		resVec.x += x + newVec.x;
 		resVec.y += y + newVec.y;
 		resVec.z += z + newVec.z;
-		return resVec;
+		return *this;
 	}
 
 	//OPERATOR-=->WORKS
@@ -53,7 +58,7 @@ public:
 		resVec.x -= x - newVec.x;
 		resVec.y -= y - newVec.y;
 		resVec.z -= z - newVec.z;
-		return resVec;
+		return *this;
 	}
 
 	//OPERATOR==->WORKS
@@ -92,7 +97,7 @@ public:
 	float distanceTo(vec3 &newVec) 
 	{
 		float distance = 0;
-		distance = sqrt(pow(x - newVec.x, 2) + pow(y - newVec.y, 2) + pow(z - newVec.z, 2));
+		distance = sqrt( ((x - newVec.x)*(x - newVec.x)) + ((y - newVec.y)*(y - newVec.y)) + ((z - newVec.z)*(z - newVec.z)) );
 		return distance;
 	}
 	
